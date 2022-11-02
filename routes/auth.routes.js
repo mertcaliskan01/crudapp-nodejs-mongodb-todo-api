@@ -1,3 +1,5 @@
+const auth = require("../middleware/auth");
+
 module.exports = app => {
     const tutorials = require("../controllers/auth.controller.js");
   
@@ -7,7 +9,7 @@ module.exports = app => {
 
     router.post("/register", tutorials.register);
 
-    router.post("/welcome", tutorials.welcome);
+    router.post("/welcome", auth, tutorials.welcome);
 
     app.use('/', router);
   };
