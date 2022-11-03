@@ -5,6 +5,8 @@ npm install  body-parser cors --save
 
 npm install nodemon -D
 
+npm i express-async-errors
+
 mongoose - NOSQL
 express - Nodejs web application framework 
 dotenv - Dotenv is a zero-dependency module that loads environment variables from a .env file
@@ -12,6 +14,7 @@ bcryptjs - Optimized bcrypt in JavaScript with zero dependencies
 body-parser - helps to parse the request and create the req.body object
 cors -  provides Express middleware to enable CORS with various options.
 nodemon - automatically restarting application
+express-async-errors - error handling
 
 RUN - npm run dev
 
@@ -29,3 +32,5 @@ Server error responses (500 – 599)
 401 - Unauthorized, unauthenticated
 403 - Forbidden The client does not have access rights to the content
 409 - Conflict This response is sent when a request conflicts with the current state of the server.
+500 - The server has encountered a situation it does not know how to handle.
+
