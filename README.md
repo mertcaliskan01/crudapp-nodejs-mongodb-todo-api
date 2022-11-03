@@ -7,6 +7,8 @@ npm install nodemon -D
 
 npm i express-async-errors
 
+npm i jest supertest mocha
+
 mongoose - NOSQL
 express - Nodejs web application framework 
 dotenv - Dotenv is a zero-dependency module that loads environment variables from a .env file
@@ -15,7 +17,11 @@ body-parser - helps to parse the request and create the req.body object
 cors -  provides Express middleware to enable CORS with various options.
 nodemon - automatically restarting application
 express-async-errors - error handling
+mocha - Simple, flexible, fun JavaScript test framework for Node.js & The Browser 
+jest - Jest is a framework for testing JavaScript code. Unit testing is the main usage of it.
+supertest - Using Supertest, we can test endpoints and routes on HTTP servers.
 
+TEST - npm test
 RUN - npm run dev
 
 

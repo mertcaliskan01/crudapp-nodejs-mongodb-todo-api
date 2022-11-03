@@ -11,5 +11,9 @@ module.exports = app => {
 
     router.post("/welcome", auth, tutorials.welcome);
 
+    router.get("/get/test", tutorials.get_test);
+  
+    router.post("/post/test", tutorials.post_test);
+
     app.use('/', router);
   };
