@@ -24,5 +24,5 @@ module.exports = app => {
     // Create a new Todo
     router.delete("/", todos.deleteAll);
   
-    app.use('/api', router);
+    app.use('/api/tasks', router);
   };
