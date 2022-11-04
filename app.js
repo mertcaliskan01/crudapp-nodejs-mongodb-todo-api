@@ -13,6 +13,8 @@ app.use(express.json());
 
 require("./routes/auth.routes")(app);
 
+require("./routes/todo.routes")(app);
+
 app.use(error);
 
 module.exports = app;
