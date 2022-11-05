@@ -83,21 +83,3 @@ exports.register = async (req, res) => {
 exports.welcome = async (req, res, next) => {
   res.status(200).json({ succeed: true, message: "Welcome" })
 };
-
-
-exports.get_test = async (req, res, next) => {
-  res.status(200).json({ succeed: true, message: "Get Test" })
-};
-
-exports.post_test = async (req, res, next) => {
-
-  // Get user input
-  const { email, password } = req.body;
-
-  // Validate user input
-  if (!(email && password)) {
-    res.status(400).send("All input is required");
-  }
-
-  res.status(200).json({ succeed: true, message: "Post Test" })
-};
