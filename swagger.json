@@ -1,0 +1,269 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "coderBora-NodeJS-CRUD-MongoDB",
+    "description": "A minimal and easy to follow example of what you need to create a CRUD style API in NodeJs",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "tags": [
+    {
+      "name": "Todo API",
+      "description": ""
+    }
+  ],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Login",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "user detail",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserLogin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    },
+    "/register": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Register",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "user detail",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserRegister"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    },
+
+    "/api/tasks/{id}": {
+      "get": {
+        "tags": ["Todo"],
+        "summary": "Get todo by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Get Todo for filter",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Todo"
+            }
+          },
+          "404": {
+            "description": "Failed. Cat not found."
+          }
+        }
+      }
+    },
+    "/api/tasks/": {
+      "get": {
+        "tags": ["Todo"],
+        "summary": "Get all todos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TodoList"
+            }
+          }
+        }
+      }
+    },
+    "/api/tasks/completed/": {
+      "get": {
+        "tags": ["Todo"],
+        "summary": "Get all completed todos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TodoList"
+            }
+          }
+        }
+      }
+    },
+    "/api/tasks": {
+        "post": {
+          "tags": ["Todo"],
+          "summary": "Create new todo",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "model",
+              "in": "body",
+              "description": "Todo Item",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Todo"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/TodoItem"
+              }
+            },
+            "400": {
+              "description": "Failed. Bad post data."
+            }
+          }
+        }
+    }
+  
+  },
+  "definitions": {
+    "UserRegister": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "UserLogin": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "Todo": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "completed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "TodoItem": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
+    "TodoList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
