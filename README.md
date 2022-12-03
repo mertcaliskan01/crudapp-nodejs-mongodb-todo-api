@@ -114,15 +114,6 @@ Server error responses (500 – 599)
 
 
 ## Run Project
-create .env file
-
-    API_PORT=8080
-    
-    MONGO_URI= "mongodb+srv://mcaliskan01:crarjd5QeVPnbYJ@cluster0.3w1x1is.mongodb.net/?retryWrites=true&w=majority"
-    
-    TOKEN_KEY = "Random"
-    
-    TOKEN_EXPIRES = "2h"
   
 TEST - npm test
 RUN - npm run dev
