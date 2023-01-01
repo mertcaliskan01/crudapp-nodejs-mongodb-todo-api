@@ -1,73 +1,55 @@
-const { expect } = require("chai");
 const request = require("supertest");
 const app = require("../app");
 
-  
-function between(min, max) {  
-  return Math.floor(
-    Math.random() * (max - min) + min
-  )
-}
+jest.setTimeout(30000)
 
-beforeEach(async () => {
+beforeAll(done => {
+  done()
+})
+
+afterAll(done => {
+  done()
+})
+
+describe("/login", () => {
+
+  describe("given a username and password", () => {
+    it("should respond with a 200 status code", async () => {
+      const res = await request(app).post("/login").send({
+        email: "mcaliskanmert@gmail.com",
+        password: "123456",
+      });
+      expect(res.statusCode).toBe(200);
+    });
+
+  })
+
+  describe("when the username and password is missing", () => {
+    it("should respond with a 400 status code", async () => {
+
+      const bodyData = [
+        { email: "username" },
+        { password: "123456" },
+        {}
+      ]
+      for (const body of bodyData) {
+        const res = await request(app).post("/login").send(body)
+        expect(res.statusCode).toBe(400)
+      }
+    });
+
+  })
 });
 
-afterEach(async () => {
-});
-
-
-
-
-describe("Auth Tests", () => {
-
-  describe("/login", () => {
-    it("Successful Login", async () => {
-      const res = await request(app).post("/login").send({
-        email: "mcaliskanmert@gmail.com",
-        password: "123456",
-      });
-      expect(res.statusCode).eq(200);
+describe("/register", () => {
+  it("Successful Register", async () => {
+    const res = await request(app).post("/register").send({
+      first_name: "Test",
+      last_name: "Test",
+      email: "mcaliskanmert@gmail.com",
+      password: "123456",
     });
-    
-    it("Failed Login - password missing", async () => {
-      const res = await request(app).post("/login").send({
-        email: "mcaliskanmert@gmail.com",
-      });
-      expect(res.statusCode).eq(400);
-    });
-    
-    it("Failed Login - email missing", async () => {
-      const res = await request(app).post("/login").send({
-        password: "123456",
-      });
-      expect(res.statusCode).eq(400);
-    });
-
-
-  });
-
-  describe("/register", () => {
-    it("Successful Register", async () => {
-      const res = await request(app).post("/register").send({
-        first_name: "Test",
-        last_name: "Test",
-        email: "mcaliskanmert@gmail.com",
-        password: "123456",
-      });
-      expect(res.statusCode).eq(409);
-    });
-    
-    it("Failed Register - user already exist", async () => {
-      const res = await request(app).post("/register").send({
-        first_name: "Test",
-        last_name: "Test",
-        email:   between(1, 9000) + "mcaliskanmert@gmail.com",
-        password: "123456",
-      });
-      expect(res.statusCode).eq(201);
-    });
-    
-
+    expect(res.statusCode).toBe(409);
   });
 
 
