@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "jest --testTimeout=20000 --forceExit"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx test"
   },
   "keywords": [],
   "author": "",
@@ -24,7 +24,6 @@
     "swagger-ui-express": "^4.6.0"
   },
   "devDependencies": {
-    "mocha": "^10.1.0",
     "nodemon": "^2.0.20",
     "supertest": "^6.3.1"
   }

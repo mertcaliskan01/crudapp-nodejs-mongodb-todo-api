@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "coderBora-NodeJS-CRUD-MongoDB",
+    "title": "NodeJS-CRUD-MongoDB",
     "description": "A minimal and easy to follow example of what you need to create a CRUD style API in NodeJs",
     "license": {
       "name": "MIT",
