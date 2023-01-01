@@ -3,15 +3,23 @@ const app = require("../app");
 
 jest.setTimeout(60000)
 
+
 beforeAll(done => {
   done()
 })
+
 
 afterAll(done => {
   done()
 })
 
+beforeEach(() => {
+
+})
+
+
 describe("/login", () => {
+  
 
   describe("given a username and password", () => {
     it("should respond with a 200 status code", async () => {
