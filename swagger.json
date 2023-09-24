@@ -1,5 +1,6 @@
 {
   "swagger": "2.0",
+  "basePath": "/api",
   "info": {
     "version": "1.0.0",
     "title": "NodeJS-CRUD-MongoDB",
@@ -18,7 +19,7 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/login": {
+    "/api/login": {
       "post": {
         "tags": ["Auth"],
         "summary": "Login",
@@ -47,7 +48,7 @@
         }
       }
     },
-    "/register": {
+    "/api/register": {
       "post": {
         "tags": ["Auth"],
         "summary": "Register",
