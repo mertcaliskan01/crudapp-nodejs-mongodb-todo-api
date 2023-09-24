@@ -19,7 +19,7 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/api/login": {
+    "/login": {
       "post": {
         "tags": ["Auth"],
         "summary": "Login",
@@ -48,7 +48,7 @@
         }
       }
     },
-    "/api/register": {
+    "/register": {
       "post": {
         "tags": ["Auth"],
         "summary": "Register",
@@ -78,7 +78,7 @@
       }
     },
 
-    "/api/tasks/{id}": {
+    "/tasks/{id}": {
       "get": {
         "tags": ["Todo"],
         "summary": "Get todo by id",
@@ -104,7 +104,7 @@
         }
       }
     },
-    "/api/tasks/": {
+    "/tasks/": {
       "get": {
         "tags": ["Todo"],
         "summary": "Get all todos",
@@ -118,7 +118,7 @@
         }
       }
     },
-    "/api/tasks/completed/": {
+    "/tasks/completed/": {
       "get": {
         "tags": ["Todo"],
         "summary": "Get all completed todos",
@@ -132,7 +132,7 @@
         }
       }
     },
-    "/api/tasks": {
+    "/tasks": {
         "post": {
           "tags": ["Todo"],
           "summary": "Create new todo",
